@@ -35,7 +35,7 @@ public class PlayerBullet : MonoBehaviour
             Weapons(collision);
             Destroy(gameObject);
             SoundManager.PlaySound("enemyDeathSound");
-            print("Hit Enemy");
+        
 
 
 
