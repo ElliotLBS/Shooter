@@ -8,7 +8,7 @@ public class Weapon : CameraSwitch
     public int ammo;
     public int currentdamage;
     public float currentrange;
-    public float firerate;
+    public float currentfirerate;
 
     [SerializeField]
     private GameObject playerbulletspawner;
@@ -37,7 +37,7 @@ public class Weapon : CameraSwitch
 
     }
 
-    public virtual void Shooting()
+    public void Shooting()
     {
         print("boom vanligt vapen");
         print("Instantiate2");
@@ -45,7 +45,7 @@ public class Weapon : CameraSwitch
         if (Time.time >= NextTimeToFire)
         {
 
-            NextTimeToFire = Time.time + 1f / basefireRate;
+            NextTimeToFire = Time.time + 1f / currentfirerate;
             shoot();
             Instantiate(playerbulletspawner, transform.position, transform.rotation);
             print("Instantiate3");
@@ -54,13 +54,13 @@ public class Weapon : CameraSwitch
         void shoot()
         {
             RaycastHit hit;
-            if (Physics.Raycast(fpscam.transform.position, fpscam.transform.forward, out hit, baserange))
+            if (Physics.Raycast(fpscam.transform.position, fpscam.transform.forward, out hit, currentrange))
             {
                 //Debug.Log(hit.transform.name);
                 Target target = hit.transform.GetComponent<Target>();
                 if (target != null)
                 {
-                    target.TakeDamage(basedamage);
+                    target.TakeDamage(currentdamage);
                  
                 }
             }

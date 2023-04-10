@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MachineGun : Weapon
 {
+
+  
+
     public override void SpecialShooting()
     {
         Debug.Log("Granade2");
@@ -27,14 +30,14 @@ public class MachineGun : Weapon
         }
     }
 
-    public override void Shooting()
+    public  void Shooting()
     {
         print("Pang Pang MachineGun");
         Debug.Log("Granade1");
         maxAmmo = 30;
         currentdamage = 10;
         currentrange = 25;
-        firerate = 0;
+        currentfirerate = 0;
 
     }
     /*

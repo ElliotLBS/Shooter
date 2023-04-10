@@ -8,13 +8,13 @@ public class Sniper : Weapon
     [SerializeField]
     private Camera cam;
 
-    public override void Shooting()
+    public  void Shooting()
     {
         print("Pang sniper");
         maxAmmo = 1;
         currentdamage = 100;
         currentrange = 50;
-        firerate = 1;
+        currentfirerate = 1;
     }
     void Scope()
     {

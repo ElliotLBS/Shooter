@@ -6,13 +6,13 @@ public class Shotgun : Weapon
 {
 
     public float shotgundamage = 50f;
-    public override void Shooting()
+    public  void Shooting()
     {
         print("Boom Shotgun");
         maxAmmo = 2;
         currentdamage = 50;
         currentrange = 10;
-        firerate = 1;
+        currentfirerate = 1;
 
 
 
