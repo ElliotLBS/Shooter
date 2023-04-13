@@ -8,22 +8,25 @@ public class Sniper : Weapon
     [SerializeField]
     private Camera cam;
 
-    public  void Shooting()
+    public float defaultFov = 90;
+
+    public override void Start()
     {
         print("Pang sniper");
         maxAmmo = 1;
         currentdamage = 100;
-        currentrange = 50;
+        currentrange = 100;
         currentfirerate = 1;
     }
-    void Scope()
+    public void Scope()
     {
-        if (Input.GetButtonDown("Fire2")) //om inget händer kommer detta att hända
-        {
-            print("zoom");
-            Camera.main.fieldOfView = 30;
-
-        }
+    
+        cam.fieldOfView = (defaultFov / 3);
         //Siktar in
+    }
+    public void nonScope()
+    {
+       
+        cam.fieldOfView = (defaultFov);
     }
 }

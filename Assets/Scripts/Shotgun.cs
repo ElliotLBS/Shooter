@@ -6,23 +6,15 @@ public class Shotgun : Weapon
 {
 
     public float shotgundamage = 50f;
-    public  void Shooting()
+    public override void Start()
     {
         print("Boom Shotgun");
         maxAmmo = 2;
         currentdamage = 50;
         currentrange = 10;
-        currentfirerate = 1;
+        currentfirerate = 3;
+
+     }
+  }
 
 
-
-    
-            Target target = transform.GetComponent<Target>();
-            if (target != null)
-            {
-                target.TakeDamage(currentdamage);
-                Debug.Log("Hit With Shotgun");
-            }
-        
-    }
-}

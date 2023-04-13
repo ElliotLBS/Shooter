@@ -30,7 +30,9 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     Transform destination;
 
-    
+    public bool respawn;
+    public float standingtimer = 3f;
+    public bool Standing = false;
 
 
 
@@ -46,11 +48,23 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(respawn)
+        {
+            transform.position = destination.position;
+            respawn = false;
+        }
+        if (standingtimer < 0)
+        {
+            respawn = true;
+
+        }
+        if (Standing)
+        {
+            standingtimer -= Time.deltaTime;
+        }
 
 
-      
 
-        
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -106,10 +120,23 @@ public class PlayerScript : MonoBehaviour
 
         if (hit.gameObject.CompareTag("DPlatform"))
         {
+            
             transform.position = destination.position;
             //hit.transform.position = destination.position;
       
         }
+        if (hit.gameObject.CompareTag("BPlatform"))
+        {
+            print("standingon");
+            Standing = true;
+        }
+        else 
+        {
+            Standing = false;
+            print("notstanding");
+            standingtimer = 3f;
+        }
+       
     }
 
 

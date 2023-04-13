@@ -32,14 +32,19 @@ public class Weapon : CameraSwitch
     public float Granadedamage = 100f;
     public float GranadeFirerate = 15f;
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    public void Shooting()
+    public virtual void Start()
     {
         print("boom vanligt vapen");
+        maxAmmo = 10;
+        ammo = 10;
+        currentdamage = 5;
+        currentrange = 30;
+        currentfirerate = 1;
+    }
+
+    public virtual void Shooting()
+    {
+    
         print("Instantiate2");
         //Skpaa ett skott och få det att åka framåt
         if (Time.time >= NextTimeToFire)

@@ -30,14 +30,14 @@ public class MachineGun : Weapon
         }
     }
 
-    public  void Shooting()
+    public override void Start()
     {
         print("Pang Pang MachineGun");
         Debug.Log("Granade1");
         maxAmmo = 30;
         currentdamage = 10;
         currentrange = 25;
-        currentfirerate = 0;
+        currentfirerate = 6f;
 
     }
     /*

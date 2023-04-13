@@ -8,6 +8,12 @@ public class CameraSwitch : MonoBehaviour
     Weapon[] weapons;
     public int currentWeapon = 0;
 
+    [SerializeField]
+    Weapon weapon;
+
+    [SerializeField]
+    Sniper sniper;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +25,7 @@ public class CameraSwitch : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1")) //om inget händer kommer detta att hända
         {
-            print("CurrentWeapon");
+            //weapon.ammo--;
             weapons[currentWeapon].Shooting();
             print("Instantiate1");
         }
@@ -39,6 +45,16 @@ public class CameraSwitch : MonoBehaviour
             {
                 currentWeapon = 0;
             }
+        }
+        if (Input.GetButton("Fire2") && currentWeapon == 3) 
+        {
+            sniper.Scope();
+           
+        }
+        else
+        {
+            sniper.nonScope();
+         
         }
     }
 }
