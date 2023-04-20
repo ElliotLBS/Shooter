@@ -28,14 +28,20 @@ public class PlayerScript : MonoBehaviour
     Rigidbody rb;
     BoxCollider boxCollider;
 
-    [SerializeField]
-    Transform destination;
+   // [SerializeField]
+    //Transform destination;
 
     public bool respawn;
     public float standingtimer = 3f;
     public bool Standing = false;
 
     PhotonView view;
+    public float minX;
+    public float maxX;
+    public float minY;
+    public float maxY;
+    public float minZ;
+    public float maxZ;
 
 
     // Start is called before the first frame update
@@ -56,7 +62,7 @@ public class PlayerScript : MonoBehaviour
 
             if (respawn)
             {
-                transform.position = destination.position;
+                Vector3 randomPosition = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minZ, maxZ));
                 respawn = false;
             }
             if (standingtimer < 0)
@@ -99,7 +105,7 @@ public class PlayerScript : MonoBehaviour
                 {
 
                     startStandTimer = false;
-                    transform.position = destination.position;
+                    Vector3 randomPosition = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minZ, maxZ));
                     standTimer = 0;
                 }
             }
@@ -130,8 +136,8 @@ public class PlayerScript : MonoBehaviour
                    if (hit.gameObject.CompareTag("DPlatform"))
                    {
 
-                      transform.position = destination.position;
-                       //hit.transform.position = destination.position;
+                    Vector3 randomPosition = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minZ, maxZ));
+                    //hit.transform.position = destination.position;
 
                    }
                      if (hit.gameObject.CompareTag("BPlatform"))

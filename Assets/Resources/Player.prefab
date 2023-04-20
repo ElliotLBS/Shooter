@@ -507,10 +507,15 @@ MonoBehaviour:
   speed: 10
   startStandTimer: 0
   standTimer: 0
-  destination: {fileID: 0}
   respawn: 0
   standingtimer: 3
   Standing: 0
+  minX: -16
+  maxX: 17
+  minY: 1
+  maxY: 1
+  minZ: -17
+  maxZ: 16
 --- !u!114 &-157719246640496935
 MonoBehaviour:
   m_ObjectHideFlags: 0
