@@ -26,7 +26,7 @@ public class RoomController : MonoBehaviourPunCallbacks
         if(PhotonNetwork.IsMasterClient)
         {
             print("Starting Game");
-            PhotonNetwork.LoadLevel(sceneIndex):
+            PhotonNetwork.LoadLevel(sceneIndex);
 
         }
     }
