@@ -100,6 +100,8 @@ GameObject:
   - component: {fileID: 3403013193679267962}
   - component: {fileID: 3403013193679267963}
   - component: {fileID: 3403013193679267956}
+  - component: {fileID: 3055303403295492034}
+  - component: {fileID: 2019667183739647284}
   m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -344,6 +346,45 @@ MonoBehaviour:
   GranadeFirerate: 15
   cam: {fileID: 3403013193679267952}
   defaultFov: 90
+--- !u!114 &3055303403295492034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3403013193679267954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 2
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 2019667183739647284}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &2019667183739647284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3403013193679267954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
+  m_UseLocal: 1
 --- !u!1 &3403013194552335392
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,12 +551,6 @@ MonoBehaviour:
   respawn: 0
   standingtimer: 3
   Standing: 0
-  minX: -16
-  maxX: 17
-  minY: 1
-  maxY: 1
-  minZ: -17
-  maxZ: 16
 --- !u!114 &-157719246640496935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -531,9 +566,9 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 3
+  Synchronization: 2
   OwnershipTransfer: 0
-  observableSearch: 2
+  observableSearch: 0
   ObservedComponents:
   - {fileID: 8836925287620772898}
   sceneViewId: 0

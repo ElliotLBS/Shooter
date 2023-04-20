@@ -25,8 +25,8 @@ public class PlayerScript : MonoBehaviour
     public float standTimer;
 
 
-    Rigidbody rb;
-    BoxCollider boxCollider;
+   //Rigidbody rb;
+    //BoxCollider boxCollider;
 
    // [SerializeField]
     //Transform destination;
@@ -36,20 +36,20 @@ public class PlayerScript : MonoBehaviour
     public bool Standing = false;
 
     PhotonView view;
-    public float minX;
-    public float maxX;
-    public float minY;
-    public float maxY;
-    public float minZ;
-    public float maxZ;
+    float minX = -17;
+    float maxX = 16;
+    float minY = 1;
+    float maxY = 1;
+    float minZ = -17;
+    float maxZ = 16;
 
 
     // Start is called before the first frame update
     void Start()
     {
         view = GetComponent<PhotonView>();
-        rb = GetComponent<Rigidbody>();
-        boxCollider = transform.GetComponent<BoxCollider>();
+      //  rb = GetComponent<Rigidbody>();
+       // boxCollider = transform.GetComponent<BoxCollider>();
        
     }
 
@@ -58,11 +58,33 @@ public class PlayerScript : MonoBehaviour
     {
         if (view.IsMine)
         {
-            //  if(view.IsMine)
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                speed = runSpeed;
+            }
+            else
+            {
+                speed = walkSpeed;
+            }
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                velocity.y = Mathf.Sqrt(jumpheight * -2f * gravity);
+
+            }
+
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
+
+            Vector3 move = transform.right * x + transform.forward * z;
+
+            controller.Move(move * speed * Time.deltaTime);
+
+            velocity.y += gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
 
             if (respawn)
             {
-                Vector3 randomPosition = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minZ, maxZ));
+                transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minZ, maxZ));
                 respawn = false;
             }
             if (standingtimer < 0)
@@ -73,18 +95,6 @@ public class PlayerScript : MonoBehaviour
             if (Standing)
             {
                 standingtimer -= Time.deltaTime;
-            }
-
-
-
-
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                speed = runSpeed;
-            }
-            else
-            {
-                speed = walkSpeed;
             }
 
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -105,28 +115,14 @@ public class PlayerScript : MonoBehaviour
                 {
 
                     startStandTimer = false;
-                    Vector3 randomPosition = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minZ, maxZ));
+                    transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minZ, maxZ));
                     standTimer = 0;
                 }
             }
 
-            if (Input.GetButtonDown("Jump") && isGrounded)
-            {
-                velocity.y = Mathf.Sqrt(jumpheight * -2f * gravity);
-
-            }
-       
-            float x = Input.GetAxis("Horizontal");
-            float z = Input.GetAxis("Vertical");
-
-            Vector3 move = transform.right * x + transform.forward * z;
-
-            controller.Move(move * speed * Time.deltaTime);
-
-            velocity.y += gravity * Time.deltaTime;
-            controller.Move(velocity * Time.deltaTime);
-
         }
+
+        
     }
 
             void OnControllerColliderHit(ControllerColliderHit hit)
@@ -136,7 +132,7 @@ public class PlayerScript : MonoBehaviour
                    if (hit.gameObject.CompareTag("DPlatform"))
                    {
 
-                    Vector3 randomPosition = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minZ, maxZ));
+                     transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minZ, maxZ));
                     //hit.transform.position = destination.position;
 
                    }
