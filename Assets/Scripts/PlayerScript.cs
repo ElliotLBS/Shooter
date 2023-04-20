@@ -127,13 +127,13 @@ public class PlayerScript : MonoBehaviour
         }
         if (hit.gameObject.CompareTag("BPlatform"))
         {
-            print("standingon");
+         
             Standing = true;
         }
         else 
         {
             Standing = false;
-            print("notstanding");
+      
             standingtimer = 3f;
         }
        

@@ -45,7 +45,7 @@ public class Weapon : CameraSwitch
     public virtual void Shooting()
     {
     
-        print("Instantiate2");
+       
         //Skpaa ett skott och få det att åka framåt
         if (Time.time >= NextTimeToFire)
         {
@@ -53,7 +53,7 @@ public class Weapon : CameraSwitch
             NextTimeToFire = Time.time + 1f / currentfirerate;
             shoot();
             Instantiate(playerbulletspawner, transform.position, transform.rotation);
-            print("Instantiate3");
+      
         }
 
         void shoot()
@@ -61,6 +61,8 @@ public class Weapon : CameraSwitch
             RaycastHit hit;
             if (Physics.Raycast(fpscam.transform.position, fpscam.transform.forward, out hit, currentrange))
             {
+                ammo--;
+                print("ammo-");
                 //Debug.Log(hit.transform.name);
                 Target target = hit.transform.GetComponent<Target>();
                 if (target != null)

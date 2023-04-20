@@ -23,11 +23,11 @@ public class CameraSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1")) //om inget händer kommer detta att hända
+        if (Input.GetButtonDown("Fire1") && weapons[currentWeapon].ammo > 0) //om inget händer kommer detta att hända
         {
             //weapon.ammo--;
             weapons[currentWeapon].Shooting();
-            print("Instantiate1");
+           
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
