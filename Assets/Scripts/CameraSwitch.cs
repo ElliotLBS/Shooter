@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class CameraSwitch : MonoBehaviour
 {
@@ -14,47 +15,52 @@ public class CameraSwitch : MonoBehaviour
     [SerializeField]
     Sniper sniper;
 
+    PhotonView view;
     // Start is called before the first frame update
     void Start()
     {
+        view = GetComponent<PhotonView>();
         weapons = GetComponents<Weapon>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && weapons[currentWeapon].ammo > 0) //om inget händer kommer detta att hända
+        if (view.IsMine)
         {
-            //weapon.ammo--;
-            weapons[currentWeapon].Shooting();
-           
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            weapons[currentWeapon].SpecialShooting();
-        }
-        if (weapons[currentWeapon].ammo <= 0 || Input.GetKeyDown(KeyCode.R))
-        {
-            weapons[currentWeapon].Reload();
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            currentWeapon++;
-            print("SwitchWeapon");
-            if (currentWeapon >= weapons.Length)
+            if (Input.GetButtonDown("Fire1") && weapons[currentWeapon].ammo > 0) //om inget händer kommer detta att hända
             {
-                currentWeapon = 0;
+                //weapon.ammo--;
+                weapons[currentWeapon].Shooting();
+
             }
-        }
-        if (Input.GetButton("Fire2") && currentWeapon == 3) 
-        {
-            sniper.Scope();
-           
-        }
-        else
-        {
-            sniper.nonScope();
-         
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                weapons[currentWeapon].SpecialShooting();
+            }
+            if (weapons[currentWeapon].ammo <= 0 || Input.GetKeyDown(KeyCode.R))
+            {
+                weapons[currentWeapon].Reload();
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                currentWeapon++;
+                print("SwitchWeapon");
+                if (currentWeapon >= weapons.Length)
+                {
+                    currentWeapon = 0;
+                }
+            }
+            if (Input.GetButton("Fire2") && currentWeapon == 3)
+            {
+                sniper.Scope();
+
+            }
+            else
+            {
+                sniper.nonScope();
+
+            }
         }
     }
 }

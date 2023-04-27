@@ -25,10 +25,10 @@ public class PlayerScript : MonoBehaviour
     public float standTimer;
 
 
-   //Rigidbody rb;
+    //Rigidbody rb;
     //BoxCollider boxCollider;
 
-   // [SerializeField]
+    // [SerializeField]
     //Transform destination;
 
     public bool respawn;
@@ -48,9 +48,9 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         view = GetComponent<PhotonView>();
-      //  rb = GetComponent<Rigidbody>();
-       // boxCollider = transform.GetComponent<BoxCollider>();
-       
+        //  rb = GetComponent<Rigidbody>();
+        // boxCollider = transform.GetComponent<BoxCollider>();
+
     }
 
     // Update is called once per frame
@@ -82,21 +82,23 @@ public class PlayerScript : MonoBehaviour
             velocity.y += gravity * Time.deltaTime;
             controller.Move(velocity * Time.deltaTime);
 
-            if (respawn)
+          /*  if (respawn)
             {
                 transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minZ, maxZ));
-                respawn = false;
+                Restartrespawn();
             }
             if (standingtimer < 0)
             {
                 respawn = true;
+            
+                standingtimer = 3f;
 
             }
             if (Standing)
             {
                 standingtimer -= Time.deltaTime;
             }
-
+          */
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
             if (isGrounded && velocity.y <= 0)
@@ -107,28 +109,45 @@ public class PlayerScript : MonoBehaviour
                     startStandTimer = true;
                     standTimer += Time.deltaTime;
                 }
+                else
+                {
+                    startStandTimer = false;
+                    standTimer = 0;
+                }
 
             }
             if (startStandTimer)
             {
-                if (standTimer >= 0.5)     //om det har gått 5 sekunder eller mer, Theo
+                if (standTimer >= 0.5)     //om det har gått 5 sekunder eller mer
                 {
 
-                    startStandTimer = false;
-                    transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minZ, maxZ));
+                    Respawn();
+                 
                     standTimer = 0;
+                    startStandTimer = false;
                 }
             }
 
         }
 
-        
+
+    }
+    public void  Restartrespawn()
+    {
+        respawn = false;
+    }
+    public void Restartstandingtimer()
+    {
+        standingtimer = 3f;
+    }
+    public void Respawn()
+    {
+        transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minZ, maxZ));
     }
 
-            void OnControllerColliderHit(ControllerColliderHit hit)
+    void OnControllerColliderHit(ControllerColliderHit hit)
             {
-                if (view.IsMine)
-               {
+               
                    if (hit.gameObject.CompareTag("DPlatform"))
                    {
 
@@ -147,7 +166,7 @@ public class PlayerScript : MonoBehaviour
 
                       standingtimer = 3f;
                     }
-               }
+               
             }
         
     
