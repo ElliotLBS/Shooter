@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Weapon : CameraSwitch
 {
@@ -31,8 +32,10 @@ public class Weapon : CameraSwitch
 
     public float Granadedamage = 100f;
     public float GranadeFirerate = 15f;
+
+    PhotonView view;
     // Start is called before the first frame update
-    public virtual void Start()
+    public virtual void Startup()
     {
         print("boom vanligt vapen");
         maxAmmo = 10;
@@ -41,19 +44,27 @@ public class Weapon : CameraSwitch
         currentrange = 30;
         currentfirerate = 1;
     }
+    void Start()
+    {
+        view = GetComponent<PhotonView>();
+    
+    }
 
     public virtual void Shooting()
     {
-    
-       
-        //Skpaa ett skott och få det att åka framåt
-        if (Time.time >= NextTimeToFire)
+        if (view.IsMine)
         {
 
-            NextTimeToFire = Time.time + 1f / currentfirerate;
-            shoot();
-            Instantiate(playerbulletspawner, transform.position, transform.rotation);
-      
+
+            //Skpaa ett skott och få det att åka framåt
+            if (Time.time >= NextTimeToFire)
+            {
+
+                NextTimeToFire = Time.time + 1f / currentfirerate;
+                shoot();
+                Instantiate(playerbulletspawner, transform.position, transform.rotation);
+
+            }
         }
 
         void shoot()

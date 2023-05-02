@@ -10,7 +10,7 @@ public class Sniper : Weapon
 
     public float defaultFov = 90;
 
-    public override void Start()
+    public override void Startup()
     {
         print("Pang sniper");
         maxAmmo = 1;

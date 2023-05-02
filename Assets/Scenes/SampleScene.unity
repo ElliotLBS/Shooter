@@ -4318,7 +4318,7 @@ GameObject:
   - component: {fileID: 354633148}
   m_Layer: 3
   m_Name: SidePlatform (159)
-  m_TagString: BPlatform
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12463,7 +12463,7 @@ GameObject:
   - component: {fileID: 970529855}
   m_Layer: 3
   m_Name: SidePlatform (231)
-  m_TagString: BPlatform
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22983,7 +22983,7 @@ GameObject:
   - component: {fileID: 1752825583}
   m_Layer: 3
   m_Name: SidePlatform (122)
-  m_TagString: BPlatform
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

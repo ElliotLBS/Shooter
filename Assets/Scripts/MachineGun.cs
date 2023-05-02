@@ -30,7 +30,7 @@ public class MachineGun : Weapon
         }
     }
 
-    public override void Start()
+    public override void Startup()
     {
         print("Pang Pang MachineGun");
         Debug.Log("Granade1");

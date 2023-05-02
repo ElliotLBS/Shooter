@@ -69,6 +69,7 @@ public class PlayerScript : MonoBehaviour
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
                 velocity.y = Mathf.Sqrt(jumpheight * -2f * gravity);
+                standTimer = 0;
 
             }
 
@@ -106,48 +107,26 @@ public class PlayerScript : MonoBehaviour
                 velocity.y = -2f;
                 if (Physics.OverlapSphere(groundCheck.position, groundDistance, groundMask)[0].gameObject.CompareTag("BPlatform"))
                 {
-                    startStandTimer = true;
                     standTimer += Time.deltaTime;
                 }
-                else
-                {
-                    startStandTimer = false;
-                    standTimer = 0;
-                }
-
             }
-            if (startStandTimer)
+            if (standTimer >= 0.5)     
             {
-                if (standTimer >= 0.5)     //om det har gått 5 sekunder eller mer
-                {
-
-                    Respawn();
-                 
-                    standTimer = 0;
-                    startStandTimer = false;
-                }
+                Respawn();
             }
-
         }
-
-
-    }
-    public void  Restartrespawn()
-    {
-        respawn = false;
-    }
-    public void Restartstandingtimer()
-    {
-        standingtimer = 3f;
     }
     public void Respawn()
     {
+        Debug.Log("Dead!");
+        controller.enabled = false;;
         transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minZ, maxZ));
+        standTimer = 0;
+        controller.enabled = true;
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
             {
-               
                    if (hit.gameObject.CompareTag("DPlatform"))
                    {
 
@@ -155,22 +134,6 @@ public class PlayerScript : MonoBehaviour
                     //hit.transform.position = destination.position;
 
                    }
-                     if (hit.gameObject.CompareTag("BPlatform"))
-                     {
 
-                       Standing = true;
-                     }
-                    else
-                    {
-                      Standing = false;
-
-                      standingtimer = 3f;
-                    }
-               
             }
-        
-    
-
-
-
 }

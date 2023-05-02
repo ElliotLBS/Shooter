@@ -6,7 +6,7 @@ public class Shotgun : Weapon
 {
 
     public float shotgundamage = 50f;
-    public override void Start()
+    public override void Startup()
     {
         print("Boom Shotgun");
         maxAmmo = 2;
