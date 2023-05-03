@@ -33,21 +33,19 @@ public class Weapon : CameraSwitch
     public float Granadedamage = 100f;
     public float GranadeFirerate = 15f;
 
-    PhotonView view;
+    
     // Start is called before the first frame update
     public virtual void Startup()
     {
-        print("boom vanligt vapen");
+        if (view.IsMine)
+        { 
+            print("boom vanligt vapen");
         maxAmmo = 10;
         ammo = 10;
         currentdamage = 5;
         currentrange = 30;
         currentfirerate = 1;
-    }
-    void Start()
-    {
-        view = GetComponent<PhotonView>();
-    
+        }
     }
 
     public virtual void Shooting()
@@ -65,21 +63,22 @@ public class Weapon : CameraSwitch
                 Instantiate(playerbulletspawner, transform.position, transform.rotation);
 
             }
-        }
+        
 
-        void shoot()
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(fpscam.transform.position, fpscam.transform.forward, out hit, currentrange))
+            void shoot()
             {
-                ammo--;
-                print("ammo-");
-                //Debug.Log(hit.transform.name);
-                Target target = hit.transform.GetComponent<Target>();
-                if (target != null)
+                RaycastHit hit;
+                if (Physics.Raycast(fpscam.transform.position, fpscam.transform.forward, out hit, currentrange))
                 {
-                    target.TakeDamage(currentdamage);
-                 
+                    ammo--;
+                    print("ammo-");
+                    //Debug.Log(hit.transform.name);
+                    Target target = hit.transform.GetComponent<Target>();
+                    if (target != null)
+                    {
+                        target.TakeDamage(currentdamage);
+
+                    }
                 }
             }
         }

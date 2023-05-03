@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class MachineGun : Weapon
 {
+   
 
-  
+
 
     public override void SpecialShooting()
     {
@@ -32,28 +34,31 @@ public class MachineGun : Weapon
 
     public override void Startup()
     {
-        print("Pang Pang MachineGun");
-        Debug.Log("Granade1");
-        maxAmmo = 30;
-        currentdamage = 10;
-        currentrange = 25;
-        currentfirerate = 6f;
-
-    }
-    /*
-    public void GranadeShooting()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (view.IsMine)
         {
-            Debug.Log("Granade2");
-            if (Time.time >= NextTimeToFireGranade)
-            {
-
-                NextTimeToFireGranade = Time.time + 1f / GranadeFirerate;
-                SpecialShooting();
-                Instantiate(playerGranadebulletspawner, transform.position, transform.rotation);
-            }
+            print("Pang Pang MachineGun");
+            Debug.Log("Granade1");
+            maxAmmo = 30;
+            currentdamage = 10;
+            currentrange = 25;
+            currentfirerate = 6f;
         }
     }
-    */
-}
+        /*
+        public void GranadeShooting()
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                Debug.Log("Granade2");
+                if (Time.time >= NextTimeToFireGranade)
+                {
+
+                    NextTimeToFireGranade = Time.time + 1f / GranadeFirerate;
+                    SpecialShooting();
+                    Instantiate(playerGranadebulletspawner, transform.position, transform.rotation);
+                }
+            }
+        }
+        */
+ }
+    

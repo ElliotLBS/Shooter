@@ -50,6 +50,10 @@ public class PlayerScript : MonoBehaviour
         view = GetComponent<PhotonView>();
         //  rb = GetComponent<Rigidbody>();
         // boxCollider = transform.GetComponent<BoxCollider>();
+        if (!view.IsMine)
+        {
+            GetComponentInChildren<Camera>().gameObject.SetActive(false);
+        }
 
     }
 

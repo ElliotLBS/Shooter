@@ -15,7 +15,8 @@ public class CameraSwitch : MonoBehaviour
     [SerializeField]
     Sniper sniper;
 
-    PhotonView view;
+    protected PhotonView view;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +28,7 @@ public class CameraSwitch : MonoBehaviour
     void Update()
     {
         if (view.IsMine)
-        {
+        { 
             if (Input.GetButtonDown("Fire1") && weapons[currentWeapon].ammo > 0) //om inget händer kommer detta att hända
             {
                 //weapon.ammo--;
