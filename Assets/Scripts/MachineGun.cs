@@ -34,15 +34,14 @@ public class MachineGun : Weapon
 
     public override void Startup()
     {
-        if (view.IsMine)
-        {
+     
             print("Pang Pang MachineGun");
             Debug.Log("Granade1");
             maxAmmo = 30;
             currentdamage = 10;
             currentrange = 25;
-            currentfirerate = 6f;
-        }
+            currentfirerate = 0.5f;
+        
     }
         /*
         public void GranadeShooting()

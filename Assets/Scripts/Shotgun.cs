@@ -11,14 +11,13 @@ public class Shotgun : Weapon
 
     public override void Startup()
     {
-        if (view.IsMine)
-        { 
+      
             print("Boom Shotgun");
           maxAmmo = 2;
            currentdamage = 50;
           currentrange = 10;
-          currentfirerate = 3;
-        }
+          currentfirerate = 2;
+        
     }
   }
 

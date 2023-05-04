@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - DPlatform
   - BPlatform
+  - Enemy
   layers:
   - Default
   - TransparentFX

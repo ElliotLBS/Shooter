@@ -207,6 +207,11 @@ MonoBehaviour:
   currentWeapon: 0
   weapon: {fileID: 3403013193679267961}
   sniper: {fileID: 3403013193679267956}
+  maxAmmo: 0
+  ammo: 0
+  currentdamage: 0
+  currentrange: 0
+  currentfirerate: 0
 --- !u!114 &3403013193679267961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,13 +231,10 @@ MonoBehaviour:
   maxAmmo: 10
   ammo: 10
   currentdamage: 10
-  currentrange: 10
+  currentrange: 500
   currentfirerate: 1
   playerbulletspawner: {fileID: 3975938586441735042, guid: 279f229b883fa6741a68b5f3840111df, type: 3}
   Rayhit: 0
-  basedamage: 10
-  baserange: 100
-  basefireRate: 15
   fpscam: {fileID: 3403013193679267952}
   layermask:
     serializedVersion: 2
@@ -241,6 +243,9 @@ MonoBehaviour:
   playerGranadebulletspawner: {fileID: 2599622841332956571, guid: 606e34becbe28dd41a6236fca38939a3, type: 3}
   Granadedamage: 100
   GranadeFirerate: 15
+  basedamage: 10
+  baserange: 100
+  basefireRate: 15
 --- !u!114 &3403013193679267962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,13 +265,10 @@ MonoBehaviour:
   maxAmmo: 30
   ammo: 30
   currentdamage: 10
-  currentrange: 25
+  currentrange: 500
   currentfirerate: 0
   playerbulletspawner: {fileID: 3975938586441735042, guid: 279f229b883fa6741a68b5f3840111df, type: 3}
   Rayhit: 0
-  basedamage: 10
-  baserange: 100
-  basefireRate: 15
   fpscam: {fileID: 3403013193679267952}
   layermask:
     serializedVersion: 2
@@ -275,6 +277,9 @@ MonoBehaviour:
   playerGranadebulletspawner: {fileID: 2599622841332956571, guid: 606e34becbe28dd41a6236fca38939a3, type: 3}
   Granadedamage: 100
   GranadeFirerate: 15
+  basedamage: 10
+  baserange: 100
+  basefireRate: 15
 --- !u!114 &3403013193679267963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,13 +299,10 @@ MonoBehaviour:
   maxAmmo: 2
   ammo: 2
   currentdamage: 50
-  currentrange: 10
+  currentrange: 20
   currentfirerate: 0
   playerbulletspawner: {fileID: 3975938586441735042, guid: 279f229b883fa6741a68b5f3840111df, type: 3}
   Rayhit: 0
-  basedamage: 10
-  baserange: 100
-  basefireRate: 15
   fpscam: {fileID: 3403013193679267952}
   layermask:
     serializedVersion: 2
@@ -309,6 +311,9 @@ MonoBehaviour:
   playerGranadebulletspawner: {fileID: 2599622841332956571, guid: 606e34becbe28dd41a6236fca38939a3, type: 3}
   Granadedamage: 100
   GranadeFirerate: 15
+  basedamage: 10
+  baserange: 100
+  basefireRate: 15
   shotgundamage: 100
 --- !u!114 &3403013193679267956
 MonoBehaviour:
@@ -324,18 +329,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapons: []
   currentWeapon: 0
-  weapon: {fileID: 0}
-  sniper: {fileID: 0}
+  weapon: {fileID: 3403013193679267961}
+  sniper: {fileID: 3403013193679267956}
   maxAmmo: 1
-  ammo: 0
-  currentdamage: 0
-  currentrange: 0
-  currentfirerate: 0
+  ammo: 1
+  currentdamage: 100
+  currentrange: 500
+  currentfirerate: 4
   playerbulletspawner: {fileID: 3975938586441735042, guid: 279f229b883fa6741a68b5f3840111df, type: 3}
   Rayhit: 0
-  basedamage: 10
-  baserange: 100
-  basefireRate: 15
   fpscam: {fileID: 3403013193679267952}
   layermask:
     serializedVersion: 2
@@ -344,6 +346,9 @@ MonoBehaviour:
   playerGranadebulletspawner: {fileID: 2599622841332956571, guid: 606e34becbe28dd41a6236fca38939a3, type: 3}
   Granadedamage: 100
   GranadeFirerate: 15
+  basedamage: 10
+  baserange: 100
+  basefireRate: 15
   cam: {fileID: 3403013193679267952}
   defaultFov: 90
 --- !u!114 &3055303403295492034
@@ -402,6 +407,7 @@ GameObject:
   - component: {fileID: 3403013194552335399}
   - component: {fileID: -157719246640496935}
   - component: {fileID: 8836925287620772898}
+  - component: {fileID: 1544559095740999072}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -590,6 +596,19 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 1
   m_UseLocal: 1
+--- !u!114 &1544559095740999072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3403013194552335392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1fe2259d267c44fbb1aa891c0d4b53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &3403013194732254851
 GameObject:
   m_ObjectHideFlags: 0

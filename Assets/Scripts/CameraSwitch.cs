@@ -16,6 +16,12 @@ public class CameraSwitch : MonoBehaviour
     Sniper sniper;
 
     protected PhotonView view;
+    private float NextTimeToFire = 0f;
+    public int maxAmmo;
+    public int ammo;
+    public int currentdamage;
+    public float currentrange;
+    public float currentfirerate;
 
     // Start is called before the first frame update
     void Start()
@@ -23,16 +29,33 @@ public class CameraSwitch : MonoBehaviour
         view = GetComponent<PhotonView>();
         weapons = GetComponents<Weapon>();
     }
+    public virtual void Startup()
+    {
+
+        print("boom vanligt vapen");
+        maxAmmo = 10;
+        ammo = 10;
+        currentdamage = 20;
+        currentrange = 30;
+        currentfirerate = 2;
+    }
 
     // Update is called once per frame
     void Update()
     {
         if (view.IsMine)
-        { 
-            if (Input.GetButtonDown("Fire1") && weapons[currentWeapon].ammo > 0) //om inget händer kommer detta att hända
+        {
+       
+            if (Input.GetButtonDown("Fire1") && weapons[currentWeapon].ammo > 0 && Time.time >= NextTimeToFire) //om inget händer kommer detta att hända
             {
+                // print("Tiden är " + Time.time + " och nexttime är " + NextTimeToFire);
                 //weapon.ammo--;
+                ammo--;
+                print("ammo-");
                 weapons[currentWeapon].Shooting();
+                print("bang");
+                NextTimeToFire = Time.time + currentfirerate;
+
 
             }
             if (Input.GetKeyDown(KeyCode.Q))

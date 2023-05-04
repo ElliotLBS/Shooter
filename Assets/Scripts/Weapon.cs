@@ -5,23 +5,16 @@ using Photon.Pun;
 
 public class Weapon : CameraSwitch
 {
-    public int maxAmmo;
-    public int ammo;
-    public int currentdamage;
-    public float currentrange;
-    public float currentfirerate;
+ 
 
     [SerializeField]
     private GameObject playerbulletspawner;
 
     public bool Rayhit;
 
-    public float basedamage = 10f;
-    public float baserange = 100f;
-    public float basefireRate = 0f;
     public Camera fpscam;
 
-    private float NextTimeToFire = 0f;
+
 
     [SerializeField]
     LayerMask layermask;
@@ -33,45 +26,25 @@ public class Weapon : CameraSwitch
     public float Granadedamage = 100f;
     public float GranadeFirerate = 15f;
 
-    
+    public float basedamage = 10f;
+    public float baserange = 100f;
+    public float basefireRate = 0f;
+
     // Start is called before the first frame update
-    public virtual void Startup()
-    {
-        if (view.IsMine)
-        { 
-            print("boom vanligt vapen");
-        maxAmmo = 10;
-        ammo = 10;
-        currentdamage = 5;
-        currentrange = 30;
-        currentfirerate = 1;
-        }
-    }
+   
 
     public virtual void Shooting()
     {
         if (view.IsMine)
         {
-
-
-            //Skpaa ett skott och få det att åka framåt
-            if (Time.time >= NextTimeToFire)
-            {
-
-                NextTimeToFire = Time.time + 1f / currentfirerate;
-                shoot();
-                Instantiate(playerbulletspawner, transform.position, transform.rotation);
-
-            }
-        
-
-            void shoot()
-            {
                 RaycastHit hit;
                 if (Physics.Raycast(fpscam.transform.position, fpscam.transform.forward, out hit, currentrange))
                 {
-                    ammo--;
-                    print("ammo-");
+              
+
+                Instantiate(playerbulletspawner, transform.position, transform.rotation);
+                 
+                   
                     //Debug.Log(hit.transform.name);
                     Target target = hit.transform.GetComponent<Target>();
                     if (target != null)
@@ -80,7 +53,7 @@ public class Weapon : CameraSwitch
 
                     }
                 }
-            }
+            
         }
     }
 
@@ -98,13 +71,20 @@ public class Weapon : CameraSwitch
 
     public virtual void Reload()
     {
-        ammo = maxAmmo;
-        print("Reload");
+        if(view.IsMine)
+        { 
+           ammo = maxAmmo;
+          print("Reload");
+        }
     }
 
     // Update is called once per frame
     void Update()
-    {
-
+    { 
+        if(view.IsMine)
+        {
+        Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
+        Debug.DrawRay(transform.position, forward, Color.green);
+        }
     }
 }

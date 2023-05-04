@@ -15,16 +15,12 @@ public class Sniper : Weapon
     
     public override void Startup()
     {
-        if (view.IsMine)
-        {
-
-
             print("Pang sniper");
             maxAmmo = 1;
             currentdamage = 100;
             currentrange = 100;
-            currentfirerate = 1;
-        }
+            currentfirerate = 4;
+        
     }
     public void Scope()
     {
