@@ -38,11 +38,12 @@ public class Weapon : CameraSwitch
         if (view.IsMine)
         {
                 RaycastHit hit;
-                if (Physics.Raycast(fpscam.transform.position, fpscam.transform.forward, out hit, currentrange))
+                if (Physics.Raycast(fpscam.transform.position, fpscam.transform.position, out hit, currentrange))
                 {
-              
+                //Vector3(2f, 0f, 0f
 
-                Instantiate(playerbulletspawner, transform.position, transform.rotation);
+
+              Instantiate(playerbulletspawner, transform.position, transform.rotation);
                  
                    
                     //Debug.Log(hit.transform.name);
@@ -83,8 +84,11 @@ public class Weapon : CameraSwitch
     { 
         if(view.IsMine)
         {
-        Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
-        Debug.DrawRay(transform.position, forward, Color.green);
+            Ray ray = new Ray(fpscam.transform.position, new Vector3(2f, 0f, 0f));
+            Debug.DrawRay(ray.origin, ray.direction * 100f, Color.green);
+           
+
+
         }
     }
 }

@@ -26,6 +26,7 @@ public class MouseLook : MonoBehaviour
         if (view.IsMine)
         {
 
+
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivty * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivty * Time.deltaTime;
 
