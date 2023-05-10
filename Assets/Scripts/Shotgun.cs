@@ -15,7 +15,7 @@ public class Shotgun : Weapon
             print("Boom Shotgun");
           maxAmmo = 2;
            currentdamage = 50;
-          currentrange = 10;
+          currentrange = 100;
           currentfirerate = 2;
         
     }

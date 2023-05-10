@@ -31,30 +31,33 @@ public class Weapon : CameraSwitch
     public float basefireRate = 0f;
 
     // Start is called before the first frame update
-   
+
 
     public virtual void Shooting()
     {
         if (view.IsMine)
         {
-                RaycastHit hit;
-                if (Physics.Raycast(fpscam.transform.position, fpscam.transform.position, out hit, currentrange))
-                {
+            RaycastHit hit;
+            if (Physics.Raycast(fpscam.transform.position + fpscam.transform.forward * 1, fpscam.transform.forward, out hit, currentrange))
+            {
                 //Vector3(2f, 0f, 0f
 
 
-              Instantiate(playerbulletspawner, transform.position, transform.rotation);
-                 
-                   
-                    //Debug.Log(hit.transform.name);
-                    Target target = hit.transform.GetComponent<Target>();
-                    if (target != null)
+                Instantiate(playerbulletspawner, transform.position, transform.rotation);
+                //Debug.Log(hit.transform.name);
+                Target target = hit.transform.GetComponent<Target>();
+                if (target != null)
+                {
+                    print("Take 20 Damage");
+                    target.TakeDamage(currentdamage);
+                    if (target != gameObject)
                     {
-                        target.TakeDamage(currentdamage);
+                       
 
                     }
                 }
-            
+
+            }
         }
     }
 
@@ -84,7 +87,7 @@ public class Weapon : CameraSwitch
     { 
         if(view.IsMine)
         {
-            Ray ray = new Ray(fpscam.transform.position, new Vector3(2f, 0f, 0f));
+            Ray ray = new Ray(fpscam.transform.position, fpscam.transform.position);
             Debug.DrawRay(ray.origin, ray.direction * 100f, Color.green);
            
 

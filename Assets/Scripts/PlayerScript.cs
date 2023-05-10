@@ -53,6 +53,7 @@ public class PlayerScript : MonoBehaviour
         if (!view.IsMine)
         {
             GetComponentInChildren<Camera>().gameObject.SetActive(false);
+        //    gameObject.tag = "Player2";
         }
 
     }

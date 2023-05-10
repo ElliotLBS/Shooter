@@ -39,7 +39,7 @@ public class MachineGun : Weapon
             Debug.Log("Granade1");
             maxAmmo = 30;
             currentdamage = 10;
-            currentrange = 25;
+            currentrange = 100000;
             currentfirerate = 0.5f;
         
     }

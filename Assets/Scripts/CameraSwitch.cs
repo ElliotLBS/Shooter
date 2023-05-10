@@ -36,7 +36,7 @@ public class CameraSwitch : MonoBehaviour
         maxAmmo = 10;
         ammo = 10;
         currentdamage = 20;
-        currentrange = 30;
+        currentrange = 1000;
         currentfirerate = 2;
     }
 

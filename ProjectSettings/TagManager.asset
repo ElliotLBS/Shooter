@@ -9,6 +9,7 @@ TagManager:
   - DPlatform
   - BPlatform
   - Enemy
+  - Player2
   layers:
   - Default
   - TransparentFX

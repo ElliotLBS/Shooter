@@ -18,7 +18,7 @@ public class Sniper : Weapon
             print("Pang sniper");
             maxAmmo = 1;
             currentdamage = 100;
-            currentrange = 100;
+            currentrange = 100000;
             currentfirerate = 4;
         
     }

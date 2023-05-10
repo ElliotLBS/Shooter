@@ -207,11 +207,11 @@ MonoBehaviour:
   currentWeapon: 0
   weapon: {fileID: 3403013193679267961}
   sniper: {fileID: 3403013193679267956}
-  maxAmmo: 0
-  ammo: 0
-  currentdamage: 0
-  currentrange: 0
-  currentfirerate: 0
+  maxAmmo: 10
+  ammo: 10
+  currentdamage: 20
+  currentrange: 10000
+  currentfirerate: 0.5
 --- !u!114 &3403013193679267961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,13 +232,13 @@ MonoBehaviour:
   ammo: 10
   currentdamage: 10
   currentrange: 500
-  currentfirerate: 1
+  currentfirerate: 0.5
   playerbulletspawner: {fileID: 3975938586441735042, guid: 279f229b883fa6741a68b5f3840111df, type: 3}
   Rayhit: 0
   fpscam: {fileID: 3403013193679267952}
   layermask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   NextTimeToFireGranade: 10
   playerGranadebulletspawner: {fileID: 2599622841332956571, guid: 606e34becbe28dd41a6236fca38939a3, type: 3}
   Granadedamage: 100
@@ -272,7 +272,7 @@ MonoBehaviour:
   fpscam: {fileID: 3403013193679267952}
   layermask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   NextTimeToFireGranade: 10
   playerGranadebulletspawner: {fileID: 2599622841332956571, guid: 606e34becbe28dd41a6236fca38939a3, type: 3}
   Granadedamage: 100
@@ -300,13 +300,13 @@ MonoBehaviour:
   ammo: 2
   currentdamage: 50
   currentrange: 20
-  currentfirerate: 0
+  currentfirerate: 1
   playerbulletspawner: {fileID: 3975938586441735042, guid: 279f229b883fa6741a68b5f3840111df, type: 3}
   Rayhit: 0
   fpscam: {fileID: 3403013193679267952}
   layermask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   NextTimeToFireGranade: 10
   playerGranadebulletspawner: {fileID: 2599622841332956571, guid: 606e34becbe28dd41a6236fca38939a3, type: 3}
   Granadedamage: 100
@@ -335,13 +335,13 @@ MonoBehaviour:
   ammo: 1
   currentdamage: 100
   currentrange: 500
-  currentfirerate: 4
+  currentfirerate: 2
   playerbulletspawner: {fileID: 3975938586441735042, guid: 279f229b883fa6741a68b5f3840111df, type: 3}
   Rayhit: 0
   fpscam: {fileID: 3403013193679267952}
   layermask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   NextTimeToFireGranade: 10
   playerGranadebulletspawner: {fileID: 2599622841332956571, guid: 606e34becbe28dd41a6236fca38939a3, type: 3}
   Granadedamage: 100
