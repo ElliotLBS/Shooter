@@ -17,15 +17,8 @@ public class SpawnPlayers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Här säger vi att när scriptet sätts igång kommer den instantiate prefaben av spelaren i en random "x,y,z" variabel
         Vector3 randomPosition = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minZ, maxZ));
         PhotonNetwork.Instantiate(playerPrefabs.name, randomPosition, Quaternion.identity);
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

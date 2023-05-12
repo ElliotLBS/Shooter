@@ -5,7 +5,8 @@ using Photon.Pun;
 
 public class Target : MonoBehaviour
 {
-    protected PhotonView view;
+    [SerializeField]
+    CharacterController controller;
 
     public float health = 100f;
     float minX = -17;
@@ -15,47 +16,43 @@ public class Target : MonoBehaviour
     float minZ = -17;
     float maxZ = 16;
 
+    PhotonView view;
+    // Här skaffar den Photon och photon kameran.
     void Start()
     {
         view = GetComponent<PhotonView>();
     }
-
+    //I void TakeDamage() sägs så att om spelarens health blir mindre eller är noll kommer den att "dö"
     public void TakeDamage(float amount)
     {
         health -= amount;
         if (health <= 0)
         {
-             if (gameObject.tag == "Enemy")
-             {
-                 Die();
-             }   
-            if(view.IsMine)
+            if (gameObject.tag == "Enemy") //Med detta ser vi att om vi träffar något med taggen "Enemy" kommer gameobject att förstöras
+
             {
-            PlayerDie();
+                Die();
              }
-
-
-/*
-             if (gameObject.tag == "Player2")
-             {
-                 transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minZ, maxZ));
+            else // Men om den inte har taggen "Enemy" kommer den ändra positionen för den andra spelaren 
+            {
+                view.RPC("PlayerDie", RpcTarget.All);
              }
-            */
         }
-
         void Die()
         {
             Destroy(gameObject);
         }
-        void PlayerDie()
-        {
-            transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minZ, maxZ));
-        }
-       
+    }
+  
+    [PunRPC]
+    public void PlayerDie()
+    {
+        controller.enabled = false;
+
+        transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minZ, maxZ));
+        controller.enabled = true;
 
     }
-
-
 
 }
 

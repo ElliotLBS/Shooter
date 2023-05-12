@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-
+    //Den här scripten funkar inte ens hur jag vill att den ska fungera
     public static AudioClip enemyDeathSound;
     static AudioSource audioSrc;
     // Start is called before the first frame update

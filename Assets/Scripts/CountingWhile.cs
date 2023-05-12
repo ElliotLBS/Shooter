@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Counting : MonoBehaviour
-{
+{ // Random Loop
     void Start()
     {
         int i = 1;

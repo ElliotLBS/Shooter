@@ -8,38 +8,24 @@ public class BounceWall : MonoBehaviour
     Vector3 lastVelocity;
     EnemyMovement movement;
 
-    private void Awake()
+    private void Awake() // hämtar kompinenter för scripet
     {
         movement = GetComponent<EnemyMovement>();
         rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() //dens senaste hastiget är rigidbodyin's hastiget
     {
         lastVelocity = rb.velocity;
     }
     private void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.gameObject.tag == "Wall")
+        if (collision.gameObject.tag == "Wall") // Om den kolliderar med något med taggen "Wall" kommer den att byta den direction till emot
         {
             movement.direction.x = -movement.direction.x;
 
-        }
-
-        if (collision.gameObject.tag == "UpperWall")
-        {
-            // direction.y = -direction.y;
-        }
-
-        if (transform.position.y < collision.transform.position.y)
-        {
-            //  direction.y = -1;
-        }
-        else
-        {
-            // direction.y = 1;
         }
     }
 }

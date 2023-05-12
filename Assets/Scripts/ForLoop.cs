@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ForLoop : MonoBehaviour
-{
+{ // random Loops som inte används
     void Start()
     {
         int n = 5, sum = 0;

@@ -9,19 +9,19 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 {
     public int roomSize;
 
-    public void JoinRoom()
+    public void JoinRoom() // Här kommer den joina ett spel som redans finns
     {
         PhotonNetwork.JoinRandomRoom();
         print("Trying to join");
     }
 
-    public override void OnJoinRandomFailed(short returnCode, string message)
+    public override void OnJoinRandomFailed(short returnCode, string message) // Om det inte finns ett rum kommer spelaren att skapa ett själv automatiskt
     {
         print("Can't Find Room");
         CreateRoom();
     }
 
-    void CreateRoom()
+    void CreateRoom() //Rummet som skapas kommer kunna ha ett nummer mellan 0 - 100000, som serverip's
     {
         print("Creating Room");
         int randomRoomNumber = Random.Range(0, 100000);
@@ -29,7 +29,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
 
 
-        RoomOptions options = new RoomOptions()
+        RoomOptions options = new RoomOptions() // Om ett rum har skapats så kommer den följa rum reglerna, som kan ses av players efter att en server finns
         {
             IsVisible = true,
             IsOpen = true,
@@ -39,11 +39,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
 
     }
-    public override void OnCreateRoomFailed(short returnCode, string message)
+    public override void OnCreateRoomFailed(short returnCode, string message) // Om det inte gick att skapa ett rum kommer spelaren kunna skapa ett eget rum automatiskt
     {
         CreateRoom();
     }
-    public void Cancel()
+    public void Cancel() // Om man trycker på "cancel" eller något händer som gör att man rummet inte behövs, kommer alla i serverna lämna rummet
     {
         PhotonNetwork.LeaveRoom();
     }

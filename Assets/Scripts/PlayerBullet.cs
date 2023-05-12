@@ -4,31 +4,17 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
-
-
     float speed = 35;
-    private BoxCollider bc;
-
-
-    // Start is called before the first frame update
-    void Start()
+    void Update() // här gör vi så att skottet bara åker framåt från där den instaniatestet
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
         transform.position += transform.forward * speed * Time.deltaTime;
-
     }
 
-    public virtual void Weapons(Collision collision)
+   public virtual void Weapons(Collision collision) // Här så Weapons har sin referens och vi säger till att vi gör den collidable
     {
 
     }
-    private void OnCollisonEnter(Collision collision)
+    private void OnCollisonEnter(Collision collision) // På detta säger vi att om skottet kolliderar med något med taggen "Enemy" kommer den förstöra skottet
     {
         if (collision.gameObject.tag == "Enemy")
         {

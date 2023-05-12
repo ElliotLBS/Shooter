@@ -23,16 +23,14 @@ public class CameraSwitch : MonoBehaviour
     public float currentrange;
     public float currentfirerate;
 
-    // Start is called before the first frame update
-    void Start()
+    void Start() // hämtar komipinenter för scriptet 
     {
         view = GetComponent<PhotonView>();
         weapons = GetComponents<Weapon>();
     }
-    public virtual void Startup()
+    public virtual void Startup() //denna är en virtual void Startup() som sätter värden för det som kommer användas i andra scripts eller klasser
     {
 
-        print("boom vanligt vapen");
         maxAmmo = 10;
         ammo = 10;
         currentdamage = 20;
@@ -40,47 +38,39 @@ public class CameraSwitch : MonoBehaviour
         currentfirerate = 2;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (view.IsMine)
         {
        
-            if (Input.GetButtonDown("Fire1") && weapons[currentWeapon].ammo > 0 && Time.time >= NextTimeToFire) //om inget händer kommer detta att hända
-            {
-                // print("Tiden är " + Time.time + " och nexttime är " + NextTimeToFire);
-                //weapon.ammo--;
+            if (Input.GetButtonDown("Fire1") && weapons[currentWeapon].ammo > 0 && Time.time >= NextTimeToFire) 
+            { // Om jag trycker på vänsterklick och man har valt ett vapen och ammo inte är noll och man har rätten att skjuta 
+                // Kommer man kunna skjuta ett skott i Weapon scriptet
                 ammo--;
-                print("ammo-");
                 weapons[currentWeapon].Shooting();
-                print("bang");
                 NextTimeToFire = Time.time + currentfirerate;
 
 
             }
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                weapons[currentWeapon].SpecialShooting();
-            }
-            if (weapons[currentWeapon].ammo <= 0 || Input.GetKeyDown(KeyCode.R))
+         
+            if (weapons[currentWeapon].ammo <= 0 || Input.GetKeyDown(KeyCode.R)) //om man har slut på ammo eller trycker på R kommer man reloada i Weapon scriptet
             {
                 weapons[currentWeapon].Reload();
             }
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E)) // Man byter vapen genom att trycka på E, och sätter den en + i arrayen av vapen
             {
                 currentWeapon++;
-                print("SwitchWeapon");
                 if (currentWeapon >= weapons.Length)
                 {
                     currentWeapon = 0;
                 }
             }
-            if (Input.GetButton("Fire2") && currentWeapon == 3)
+            if (Input.GetButton("Fire2") && currentWeapon == 3) // Om man håller in högerklick och håller i snipern så kommer den sikta i Sniper scriptet
             {
                 sniper.Scope();
 
             }
-            else
+            else // annars kommer siktet vara normal
             {
                 sniper.nonScope();
 

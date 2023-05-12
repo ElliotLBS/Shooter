@@ -1,17 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
 public class Shotgun : Weapon
 {
-   
-
-    public float shotgundamage = 50f;
-
-    public override void Startup()
+    public override void Startup() // Simpelt här overridar vi void Startup() från CameraSwitch scriptet med nya värden för vi bytte vapen
     {
-      
             print("Boom Shotgun");
           maxAmmo = 2;
            currentdamage = 50;

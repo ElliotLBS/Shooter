@@ -210,7 +210,7 @@ MonoBehaviour:
   maxAmmo: 10
   ammo: 10
   currentdamage: 20
-  currentrange: 10000
+  currentrange: 1e+10
   currentfirerate: 0.5
 --- !u!114 &3403013193679267961
 MonoBehaviour:
@@ -231,21 +231,10 @@ MonoBehaviour:
   maxAmmo: 10
   ammo: 10
   currentdamage: 10
-  currentrange: 500
+  currentrange: 5e+9
   currentfirerate: 0.5
   playerbulletspawner: {fileID: 3975938586441735042, guid: 279f229b883fa6741a68b5f3840111df, type: 3}
-  Rayhit: 0
   fpscam: {fileID: 3403013193679267952}
-  layermask:
-    serializedVersion: 2
-    m_Bits: 64
-  NextTimeToFireGranade: 10
-  playerGranadebulletspawner: {fileID: 2599622841332956571, guid: 606e34becbe28dd41a6236fca38939a3, type: 3}
-  Granadedamage: 100
-  GranadeFirerate: 15
-  basedamage: 10
-  baserange: 100
-  basefireRate: 15
 --- !u!114 &3403013193679267962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,21 +254,10 @@ MonoBehaviour:
   maxAmmo: 30
   ammo: 30
   currentdamage: 10
-  currentrange: 500
+  currentrange: 50000000
   currentfirerate: 0
   playerbulletspawner: {fileID: 3975938586441735042, guid: 279f229b883fa6741a68b5f3840111df, type: 3}
-  Rayhit: 0
   fpscam: {fileID: 3403013193679267952}
-  layermask:
-    serializedVersion: 2
-    m_Bits: 64
-  NextTimeToFireGranade: 10
-  playerGranadebulletspawner: {fileID: 2599622841332956571, guid: 606e34becbe28dd41a6236fca38939a3, type: 3}
-  Granadedamage: 100
-  GranadeFirerate: 15
-  basedamage: 10
-  baserange: 100
-  basefireRate: 15
 --- !u!114 &3403013193679267963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,22 +277,10 @@ MonoBehaviour:
   maxAmmo: 2
   ammo: 2
   currentdamage: 50
-  currentrange: 20
-  currentfirerate: 1
+  currentrange: 100000
+  currentfirerate: 3
   playerbulletspawner: {fileID: 3975938586441735042, guid: 279f229b883fa6741a68b5f3840111df, type: 3}
-  Rayhit: 0
   fpscam: {fileID: 3403013193679267952}
-  layermask:
-    serializedVersion: 2
-    m_Bits: 64
-  NextTimeToFireGranade: 10
-  playerGranadebulletspawner: {fileID: 2599622841332956571, guid: 606e34becbe28dd41a6236fca38939a3, type: 3}
-  Granadedamage: 100
-  GranadeFirerate: 15
-  basedamage: 10
-  baserange: 100
-  basefireRate: 15
-  shotgundamage: 100
 --- !u!114 &3403013193679267956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,21 +300,10 @@ MonoBehaviour:
   maxAmmo: 1
   ammo: 1
   currentdamage: 100
-  currentrange: 500
-  currentfirerate: 2
+  currentrange: 1e+10
+  currentfirerate: 5
   playerbulletspawner: {fileID: 3975938586441735042, guid: 279f229b883fa6741a68b5f3840111df, type: 3}
-  Rayhit: 0
   fpscam: {fileID: 3403013193679267952}
-  layermask:
-    serializedVersion: 2
-    m_Bits: 64
-  NextTimeToFireGranade: 10
-  playerGranadebulletspawner: {fileID: 2599622841332956571, guid: 606e34becbe28dd41a6236fca38939a3, type: 3}
-  Granadedamage: 100
-  GranadeFirerate: 15
-  basedamage: 10
-  baserange: 100
-  basefireRate: 15
   cam: {fileID: 3403013193679267952}
   defaultFov: 90
 --- !u!114 &3055303403295492034
@@ -552,11 +507,7 @@ MonoBehaviour:
   runSpeed: 15
   walkSpeed: 5
   speed: 10
-  startStandTimer: 0
   standTimer: 0
-  respawn: 0
-  standingtimer: 3
-  Standing: 0
 --- !u!114 &-157719246640496935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,6 +559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1fe2259d267c44fbb1aa891c0d4b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 3403013194552335398}
   health: 100
 --- !u!1 &3403013194732254851
 GameObject:
