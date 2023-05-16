@@ -2240,6 +2240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1fe2259d267c44fbb1aa891c0d4b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}
   health: 100
 --- !u!65 &194879831
 BoxCollider:
@@ -8238,6 +8239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1fe2259d267c44fbb1aa891c0d4b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}
   health: 100
 --- !u!54 &743327148
 Rigidbody:
