@@ -31,7 +31,7 @@ public class Target : MonoBehaviour
     {
         view = GetComponent<PhotonView>();
         currentHealth = maxHealth;
-        healthbar.SetMaxHealth(maxHealth);
+      //  healthbar.SetMaxHealth(maxHealth);
       
 
     }
@@ -39,7 +39,7 @@ public class Target : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
-        healthbar.SetHealth(currentHealth);
+        //healthbar.SetHealth(currentHealth);
         if (currentHealth <= 0)
         {
             if (gameObject.tag == "Enemy") //Med detta ser vi att om vi träffar något med taggen "Enemy" kommer gameobject att förstöras
@@ -67,6 +67,7 @@ public class Target : MonoBehaviour
         controller.enabled = true;
 
     }
+ 
 
 }
 
