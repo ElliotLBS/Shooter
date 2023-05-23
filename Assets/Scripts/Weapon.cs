@@ -9,6 +9,9 @@ public class Weapon : CameraSwitch
     [SerializeField]
     private GameObject playerbulletspawner;
     public Camera fpscam;
+  
+
+   
     //I  void Shooting() så kommer scripten ha en raycast som kommer hålla sig framför spelaren och följa efter kameran, för att sedan kunna göra skada 
     public virtual void Shooting()
     {

@@ -592,4 +592,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6520637255040795664}
-  health: 100
+  maxHealth: 100
+  currentHealth: 0
+  healthbar: {fileID: 0}

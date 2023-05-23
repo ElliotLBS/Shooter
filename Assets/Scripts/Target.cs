@@ -3,12 +3,16 @@ using UnityEngine;
 using Photon.Pun;
 
 
+
 public class Target : MonoBehaviour
 {
     [SerializeField]
     CharacterController controller;
 
-    public float health = 100f;
+    public int maxHealth = 100;
+    public int currentHealth;
+    public Healthbar healthbar;
+
     float minX = -17;
     float maxX = 16;
     float minY = 1;
@@ -17,16 +21,26 @@ public class Target : MonoBehaviour
     float maxZ = 16;
 
     PhotonView view;
+
+
+
+
+
     // Här skaffar den Photon och photon kameran.
     void Start()
     {
         view = GetComponent<PhotonView>();
+        currentHealth = maxHealth;
+        healthbar.SetMaxHealth(maxHealth);
+      
+
     }
     //I void TakeDamage() sägs så att om spelarens health blir mindre eller är noll kommer den att "dö"
-    public void TakeDamage(float amount)
+    public void TakeDamage(int amount)
     {
-        health -= amount;
-        if (health <= 0)
+        currentHealth -= amount;
+        healthbar.SetHealth(currentHealth);
+        if (currentHealth <= 0)
         {
             if (gameObject.tag == "Enemy") //Med detta ser vi att om vi träffar något med taggen "Enemy" kommer gameobject att förstöras
 
