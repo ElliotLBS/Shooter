@@ -424,7 +424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 24861545}
   - component: {fileID: 24861547}
-  - component: {fileID: 24861546}
+  - component: {fileID: 24861548}
   m_Layer: 0
   m_Name: Healtbar
   m_TagString: Untagged
@@ -454,19 +454,6 @@ RectTransform:
   m_AnchoredPosition: {x: -653.89996, y: -441.7917}
   m_SizeDelta: {x: 581.7062, y: 99.0166}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &24861546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24861544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ccc4666fc3e4974588d73e5f40d3795, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 24861547}
 --- !u!114 &24861547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,6 +505,22 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &24861548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24861544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf942b2e997fd7f4e8bdc6e6b302a1f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 24861547}
+  camera: {fileID: 0}
+  target: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &28875004
 GameObject:
   m_ObjectHideFlags: 0
@@ -2316,7 +2319,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &194879829
 Transform:
   m_ObjectHideFlags: 0
@@ -3814,7 +3817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemys:
-  - {fileID: 6935232267573797970, guid: f10c707e369c7fa43b07e7975db32001, type: 3}
+  - {fileID: 4588898763125294709, guid: 1f1929facd992f24a93c70bf14fc83aa, type: 3}
 --- !u!1 &354633143
 GameObject:
   m_ObjectHideFlags: 0

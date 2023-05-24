@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
     float speed;
     public Vector3 direction = new Vector3(0, 0, 0);
     Rigidbody rb;
+   
 
     void Start() 
     {
@@ -18,7 +19,6 @@ public class EnemyMovement : MonoBehaviour
             x = -1;
         }
         direction.x = x;
-
     }
 
     void Update()  // Den går konstant åt den direction där den spawnade från

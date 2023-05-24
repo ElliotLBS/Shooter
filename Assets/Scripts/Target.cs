@@ -4,14 +4,13 @@ using Photon.Pun;
 
 
 
-public class Target : MonoBehaviour
+public class Target : MonoBehaviour, IPunObservable
 {
     [SerializeField]
     CharacterController controller;
 
     public int maxHealth = 100;
     public int currentHealth;
-    public Healthbar healthbar;
 
     float minX = -17;
     float maxX = 16;
@@ -21,25 +20,24 @@ public class Target : MonoBehaviour
     float maxZ = 16;
 
     PhotonView view;
-
-
-
-
-
+    [SerializeField] FloatingHealtbar healthbar;
     // Här skaffar den Photon och photon kameran.
     void Start()
     {
         view = GetComponent<PhotonView>();
         currentHealth = maxHealth;
-      //  healthbar.SetMaxHealth(maxHealth);
+        healthbar = transform.GetChild(0).transform.GetChild(0).GetComponentInChildren<FloatingHealtbar>();
+        healthbar.UpdateFixedHealtBar(currentHealth, maxHealth);
       
 
     }
     //I void TakeDamage() sägs så att om spelarens health blir mindre eller är noll kommer den att "dö"
     public void TakeDamage(int amount)
     {
+     if(!view.IsMine)
+        {
         currentHealth -= amount;
-        //healthbar.SetHealth(currentHealth);
+        healthbar.UpdateFixedHealtBar(currentHealth, maxHealth);
         if (currentHealth <= 0)
         {
             if (gameObject.tag == "Enemy") //Med detta ser vi att om vi träffar något med taggen "Enemy" kommer gameobject att förstöras
@@ -50,11 +48,13 @@ public class Target : MonoBehaviour
             else // Men om den inte har taggen "Enemy" kommer den ändra positionen för den andra spelaren 
             {
                 view.RPC("PlayerDie", RpcTarget.All);
-             }
-        }
+            }
+        
         void Die()
         {
             Destroy(gameObject);
+        }
+        }
         }
     }
   
@@ -67,7 +67,19 @@ public class Target : MonoBehaviour
         controller.enabled = true;
 
     }
- 
 
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+      
+        if (stream.IsWriting)
+        {
+            stream.SendNext(currentHealth);
+        }
+        else
+        {
+            currentHealth = (int)stream.ReceiveNext();
+        }
+        }
+    
 }
 
