@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class KillButton : MonoBehaviour
 {
@@ -10,24 +11,8 @@ public class KillButton : MonoBehaviour
     {
         ButtonDown = true;
         DestroyAll(tag);
-
-
-
     }
-    public void Update()
-    {
-    //    Debug.LogError("Pressed Button");
-      
-    }
-
-    public void ButtonPressed()
-    {
-        // Debug.LogError("Destryoed");
-        while (GameObject.FindWithTag("Enemy") != null) Destroy(GameObject.FindWithTag("Enemy"));
-        ButtonDown = false;
-
-    
-    }
+    [PunRPC]
     public void DestroyAll(string tag)
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");

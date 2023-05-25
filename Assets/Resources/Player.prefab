@@ -175,6 +175,7 @@ MonoBehaviour:
   camera: {fileID: 0}
   target: {fileID: 7734292912819691947}
   offset: {x: 0, y: 2, z: 0}
+  enemy: {fileID: 7070215730665129983}
 --- !u!1 &994856631926274536
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,6 +858,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 6080621119521056618}
+  - {fileID: 7070215730665129983}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -890,8 +892,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 6520637255040795664}
   maxHealth: 100
-  currentHealth: 0
-  healthbar: {fileID: 0}
+  currentHealth: 100
+  healthbar: {fileID: 3375251838436173114}
 --- !u!1 &6676778805233063569
 GameObject:
   m_ObjectHideFlags: 0

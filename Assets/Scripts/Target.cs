@@ -27,17 +27,22 @@ public class Target : MonoBehaviour, IPunObservable
         view = GetComponent<PhotonView>();
         currentHealth = maxHealth;
         healthbar = transform.GetChild(0).transform.GetChild(0).GetComponentInChildren<FloatingHealtbar>();
-        healthbar.UpdateFixedHealtBar(currentHealth, maxHealth);
+
       
 
     }
     //I void TakeDamage() sägs så att om spelarens health blir mindre eller är noll kommer den att "dö"
     public void TakeDamage(int amount)
     {
-     if(!view.IsMine)
-        {
+
         currentHealth -= amount;
-        healthbar.UpdateFixedHealtBar(currentHealth, maxHealth);
+        if(view.IsMine)
+        {
+            healthbar.UpdateFixedHealtBar(currentHealth, maxHealth);
+
+        }
+
+
         if (currentHealth <= 0)
         {
             if (gameObject.tag == "Enemy") //Med detta ser vi att om vi träffar något med taggen "Enemy" kommer gameobject att förstöras
@@ -55,7 +60,7 @@ public class Target : MonoBehaviour, IPunObservable
             Destroy(gameObject);
         }
         }
-        }
+        
     }
   
     [PunRPC]

@@ -360,6 +360,7 @@ MonoBehaviour:
   camera: {fileID: 0}
   target: {fileID: 4588898763125294709}
   offset: {x: 0, y: 2, z: 0}
+  enemy: {fileID: 4588898763125294711}
 --- !u!1 &4588898763125294708
 GameObject:
   m_ObjectHideFlags: 0
