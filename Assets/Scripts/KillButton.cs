@@ -7,10 +7,18 @@ public class KillButton : MonoBehaviour
 {
     public bool ButtonDown = false;
 
+    PhotonView view;
+    public void Start()
+    {
+        view = GetComponent<PhotonView>();
+    }
     public  void OnMouseDown()
     {
         ButtonDown = true;
-        DestroyAll(tag);
+      
+            view.RPC("DestroyAll", RpcTarget.All, "Enemy");
+
+        
     }
     [PunRPC]
     public void DestroyAll(string tag)

@@ -12,18 +12,25 @@ public class EnemySpawner : MonoBehaviour
     {
         view = GetComponent<PhotonView>();
     }
-    [PunRPC]
+
     void Update()
     {
-    
-        timer += Time.deltaTime;
-        if (timer > 3) // Varje 3rd sekund så kommer det instantiate en enemy prefab med random spawn point
+        if (PhotonNetwork.IsMasterClient)  // Om man är MasterClient kommer spelet att instanitate en prefab av spelaren
         {
-            int rng = Random.Range(0, enemys.Length);
-           PhotonNetwork.Instantiate("MovingTrainingDummy", new Vector3(0, 1, Random.Range(-19, 19)), enemys[rng].transform.rotation);
-           timer = 0;
-        
+            timer += Time.deltaTime;
+            if (timer > 3) // Varje 3rd sekund så kommer det instantiate en enemy prefab med random spawn point
+            {
+                int rng = Random.Range(0, enemys.Length);
+                PhotonNetwork.Instantiate("MovingTrainingDummy", new Vector3(0, 1, Random.Range(-19, 19)), enemys[rng].transform.rotation);
+                timer = 0;
+
+            }
         }
+        else
+        {
+
+        }
+
 
     }
 }

@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 8263638991869518591}
-  camera: {fileID: 0}
+  camera2: {fileID: 0}
   target: {fileID: 4588898763125294709}
   offset: {x: 0, y: 2, z: 0}
   enemy: {fileID: 4588898763125294711}

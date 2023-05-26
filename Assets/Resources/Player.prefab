@@ -29,7 +29,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7734292912819691947}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &426621362194172786
 GameObject:
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 6484340816183678155}
-  camera: {fileID: 0}
+  camera2: {fileID: 0}
   target: {fileID: 7734292912819691947}
   offset: {x: 0, y: 2, z: 0}
   enemy: {fileID: 7070215730665129983}
@@ -299,7 +299,7 @@ Transform:
   m_Children:
   - {fileID: 2513994953851626655}
   m_Father: {fileID: 7734292912819691947}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -179.888, z: 0}
 --- !u!20 &3527315650160352430
 Camera:
@@ -710,9 +710,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 393296865208677783}
   - {fileID: 5082506625360086153}
   - {fileID: 1216445228268830712}
-  - {fileID: 393296865208677783}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -927,7 +927,7 @@ RectTransform:
   m_Children:
   - {fileID: 6797111475030423416}
   m_Father: {fileID: 7734292912819691947}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

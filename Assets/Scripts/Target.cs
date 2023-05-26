@@ -27,10 +27,11 @@ public class Target : MonoBehaviour, IPunObservable
         view = GetComponent<PhotonView>();
         currentHealth = maxHealth;
         healthbar = transform.GetChild(0).transform.GetChild(0).GetComponentInChildren<FloatingHealtbar>();
-
+ 
       
 
     }
+    [PunRPC]
     //I void TakeDamage() sägs så att om spelarens health blir mindre eller är noll kommer den att "dö"
     public void TakeDamage(int amount)
     {
@@ -48,21 +49,24 @@ public class Target : MonoBehaviour, IPunObservable
             if (gameObject.tag == "Enemy") //Med detta ser vi att om vi träffar något med taggen "Enemy" kommer gameobject att förstöras
 
             {
-                Die();
+                view.RPC("Die", RpcTarget.All);
+                
              }
             else // Men om den inte har taggen "Enemy" kommer den ändra positionen för den andra spelaren 
             {
                 view.RPC("PlayerDie", RpcTarget.All);
             }
         
-        void Die()
-        {
-            Destroy(gameObject);
-        }
+   
         }
         
     }
-  
+    [PunRPC]
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
+
     [PunRPC]
     public void PlayerDie()
     {
