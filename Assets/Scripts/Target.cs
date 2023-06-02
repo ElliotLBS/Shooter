@@ -22,10 +22,11 @@ public class Target : MonoBehaviour, IPunObservable
     PhotonView view;
     [SerializeField] FloatingHealtbar healthbar;
     // Här skaffar den Photon och photon kameran.
+    [PunRPC]
     void Start()
     {
         view = GetComponent<PhotonView>();
-        currentHealth = maxHealth;
+       currentHealth = maxHealth;
         healthbar = transform.GetChild(0).transform.GetChild(0).GetComponentInChildren<FloatingHealtbar>();
  
       
@@ -76,7 +77,7 @@ public class Target : MonoBehaviour, IPunObservable
         controller.enabled = true;
 
     }
-
+    [PunRPC]
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
       

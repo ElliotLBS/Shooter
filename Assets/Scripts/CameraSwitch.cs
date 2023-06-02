@@ -23,6 +23,19 @@ public class CameraSwitch : MonoBehaviour
     public float currentrange;
     public float currentfirerate;
 
+
+    [SerializeField]
+    Material[] Materials;
+    public int currentMaterial = 0;
+    [SerializeField]
+     public Material PistolMaterial;
+    [SerializeField]
+    public Material MachinegunMaterial;
+    [SerializeField]
+    public Material ShotgunMaterial;
+    [SerializeField]
+    public Material SniperMaterial;
+
     void Start() // hämtar komipinenter för scriptet 
     {
         view = GetComponent<PhotonView>();
@@ -60,10 +73,16 @@ public class CameraSwitch : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E)) // Man byter vapen genom att trycka på E, och sätter den en + i arrayen av vapen
             {
                 currentWeapon++;
+                //currentMaterial++;
+
                 if (currentWeapon >= weapons.Length)
                 {
                     currentWeapon = 0;
                 }
+              /*  if(currentMaterial >= Materials.Length)
+                {
+                    currentMaterial  = 0;
+                }*/
             }
             if (Input.GetButton("Fire2") && currentWeapon == 3) // Om man håller in högerklick och håller i snipern så kommer den sikta i Sniper scriptet
             {
