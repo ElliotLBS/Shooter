@@ -6,6 +6,7 @@ public class ChangeMaterial : MonoBehaviour
 {
 
     public Material[] material;
+    public Texture[] textures;
     public int x;
     Renderer rend;
     Texture texture;
@@ -14,14 +15,15 @@ public class ChangeMaterial : MonoBehaviour
     {
         x = 0;
         rend = GetComponent<Renderer>();
+        texture = GetComponent<Texture>();
         rend.enabled = true;
-        rend.sharedMaterial = material[x];
+        rend.material.mainTexture = textures[x];
     }
 
     // Update is called once per frame
     void Update()
     {
-        rend.sharedMaterial = material[x];
+        rend.material.mainTexture = textures[x];
         if (Input.GetKeyDown(KeyCode.E))
         {
             NextColor();
