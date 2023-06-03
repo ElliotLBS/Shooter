@@ -8,7 +8,8 @@ public class ChangeMaterial : MonoBehaviour
     public Material[] material;
     public int x;
     Renderer rend;
-    // Start is called before the first frame update
+    Texture texture;
+    // Start is called before the first frame update 
     void Start()
     {
         x = 0;
