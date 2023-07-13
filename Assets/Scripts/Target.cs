@@ -28,12 +28,13 @@ public class Target : MonoBehaviour, IPunObservable
         view = GetComponent<PhotonView>();
        currentHealth = maxHealth;
         healthbar = transform.GetChild(0).transform.GetChild(0).GetComponentInChildren<FloatingHealtbar>();
- 
-      
+       maxHealth = 100;
 
-    }
-    [PunRPC]
+
+}
+
     //I void TakeDamage() sägs så att om spelarens health blir mindre eller är noll kommer den att "dö"
+    [PunRPC]
     public void TakeDamage(int amount)
     {
 

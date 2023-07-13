@@ -5,7 +5,6 @@ using UnityEngine;
 public class ChangeMaterial : MonoBehaviour
 {
 
-    public Material[] material;
     public Texture[] textures;
     public int x;
     Renderer rend;
